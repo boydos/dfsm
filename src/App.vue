@@ -1,14 +1,29 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <div>
-      <el-button @click="startHacking">Start</el-button>
+    <!-- <el-row><nav-menu/></el-row> -->
+    <el-row class="tac" style="text-align:left">
+    <div style="float: left">
+      <list-menu></list-menu>
     </div>
+    <div style="float:left">
+      <img src="./assets/logo.png">
+      <div>
+          <el-button @click="startHacking">Start</el-button>
+      </div>
+    </div>
+    </el-row>
   </div>
 </template>
 
-<script>
+<script scoped>
+import NavMenu from "./vue/NavMenu.vue";
+import ListMenu from "./vue/ListMenu.vue";
+
 export default {
+  components : {
+    "nav-menu" : NavMenu,
+    "list-menu" : ListMenu
+  },
   methods: {
     startHacking () {
       this.$notify({
@@ -22,7 +37,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #app {
   font-family: Helvetica, sans-serif;
   text-align: center;
